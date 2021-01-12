@@ -1,4 +1,4 @@
 package com.company.dao;
 
-public class Dao {
+public class Dao{
 }

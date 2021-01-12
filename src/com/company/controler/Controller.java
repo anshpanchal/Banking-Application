@@ -1,14 +1,19 @@
 package com.company.controler;
+import com.company.service.Service;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import java.io.IOException;
 import java.util.Scanner;
 
-public class Controler {
+public class Controller {
 
-    public void createNewAccount(String name, double amount){
+    Service service = new Service();
+
+    public void createNewAccount(String name, double amount) throws IOException, InvalidFormatException {
         System.out.println("Wait.... Your Account is Being Processed");
         System.out.println("Your Name is: " + name);
         System.out.println("Your Amount is: " + amount);
-
+        service.xyz();
     }
     public void addAmount(double newAmount, String modeOfTransaction, int accountNumber) {
         System.out.println("New Amount is: " + newAmount);

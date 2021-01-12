@@ -1,12 +1,13 @@
 package com.company.view;
 
-import com.company.controler.Controler;
+import com.company.controler.Controller;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import java.sql.SQLOutput;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class View {
-    public void init(){
+    public void init() throws IOException, InvalidFormatException {
         Scanner scanner = new Scanner(System.in);
         System.out.println(".......Welcome to Bank Application.........");
         System.out.println("1. Create New Account");
@@ -18,7 +19,7 @@ public class View {
         int ch = scanner.nextInt();
 
         //Controller Object (Decomposition)
-        Controler controler = new Controler();
+        Controller controller = new Controller();
         switch (ch){
             case 1:
                 System.out.println("1. Create New Account");
@@ -30,7 +31,7 @@ public class View {
                 System.out.println("Enter the Amount you want to Add in Bank Account");
                 double amount = scanner.nextDouble();
                 // Calling new method account for controller
-                controler.createNewAccount(name,amount);
+                controller.createNewAccount(name,amount);
                 break;
             case 2:
                 System.out.println("2.Add Amount via Cash/Online");
@@ -44,7 +45,7 @@ public class View {
                 String mode = "";
                 System.out.println("1. Cash");
                 System.out.println("2. Online");
-                controler.addAmount(newAmount,modeOfTransaction,accountNumber);
+                controller.addAmount(newAmount,modeOfTransaction,accountNumber);
                 break;
             case 3:
                 System.out.println("3.Withdraw Money Cash/Online/ATM");
@@ -62,13 +63,13 @@ public class View {
                 System.out.println("2. Online");
                 System.out.println("3. ATM");
 
-                controler.withdrawAmount(userAccountNumber,withdrawModeOfTransaction,withdrawAmount);
+                controller.withdrawAmount(userAccountNumber,withdrawModeOfTransaction,withdrawAmount);
                 break;
             case 4:
                 System.out.println("4.Check Balance");
                 System.out.println("Enter Your Account Number: ");
                 double accountNum = scanner.nextDouble();
-                controler.checkBalance(accountNum);
+                controller.checkBalance(accountNum);
                 break;
             case 5:
                 System.out.println("5.Exit");
